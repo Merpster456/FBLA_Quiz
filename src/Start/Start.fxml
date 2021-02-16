@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="900.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Start.StartController">
+    <HBox alignment="CENTER" prefHeight="125" prefWidth="600" styleClass="primaryDark">
+        <Label styleClass="topLabel" text="FBLA Quiz!" textAlignment="CENTER" />
+    </HBox>
+    <StackPane layoutX="117.0" layoutY="275.0">
+        <Ellipse fx:id="loginEllipse" onMouseClicked="#login" onMouseEntered="#setLogin" onMouseExited="#loginRefresh" radiusX="183.0" radiusY="55.0" styleClass="ellipse">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <InnerShadow />
+            </effect>
+        </Ellipse>
+        <Label fx:id="loginLabel" onMouseClicked="#login" onMouseEntered="#setLogin" onMouseExited="#loginRefresh" styleClass="whiteLabel" text="Login">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Label>
+    </StackPane>
+    <StackPane layoutX="117.0" layoutY="499.0">
+        <Ellipse fx:id="guestEllipse" layoutX="300.0" layoutY="541.0" onMouseClicked="#login" onMouseEntered="#setGuest" onMouseExited="#guestRefresh" radiusX="183.0" radiusY="55.0" styleClass="ellipse">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <InnerShadow />
+            </effect>
+        </Ellipse>
+        <Label fx:id="guestLabel" onMouseClicked="#login" onMouseEntered="#setGuest" onMouseExited="#guestRefresh" styleClass="blackLabel" text="Continue as guest">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Label>
+    </StackPane>
+
+
+    <stylesheets>
+        <URL value="@../Style.css" />
+    </stylesheets>
+</AnchorPane>

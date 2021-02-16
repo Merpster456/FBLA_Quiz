@@ -1,4 +1,4 @@
-package Login;
+package Start;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,12 +10,12 @@ import javafx.stage.StageStyle;
 /**
  * Starts the application
  */
-public class LoginApp extends Application {
+public class StartApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        primaryStage.setTitle("Login");
+        Parent root = FXMLLoader.load(getClass().getResource("Start.fxml"));
+        primaryStage.setTitle("Start");
         primaryStage.initStyle(StageStyle.DECORATED);
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
