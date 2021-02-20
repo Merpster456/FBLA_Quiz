@@ -22,6 +22,8 @@ public class StartController implements Initializable {
     public static String primary = "#5377a1";
     public static String primaryLight = "#789cc7";
 
+    public static boolean isGuest;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -40,6 +42,22 @@ public class StartController implements Initializable {
         Scene scene = new Scene(root);
         nextStage.setResizable(false);
         nextStage.setTitle("Login");
+        nextStage.setScene(scene);
+        nextStage.show();
+    }
+
+    @FXML
+    protected void guest(MouseEvent event) throws IOException {
+
+        isGuest = true;
+
+        Stage stage = (Stage) guestEllipse.getScene().getWindow();
+
+        stage.close();
+        Stage nextStage = new Stage();
+        Pane root = FXMLLoader.load(getClass().getResource("/Quiz/Quiz.fxml"));
+        Scene scene = new Scene(root);
+        nextStage.setResizable(false);
         nextStage.setScene(scene);
         nextStage.show();
     }

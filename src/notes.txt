@@ -1,0 +1,5 @@
+Config document to increase/decrease numbers of questions in quiz,and number of different types of questions
+
+Could be a table in the database
+
+Mult choice

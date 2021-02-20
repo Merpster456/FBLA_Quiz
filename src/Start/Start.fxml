@@ -26,7 +26,7 @@
          </cursor></Label>
     </StackPane>
     <StackPane layoutX="117.0" layoutY="499.0">
-        <Ellipse fx:id="guestEllipse" layoutX="300.0" layoutY="541.0" onMouseClicked="#login" onMouseEntered="#setGuest" onMouseExited="#guestRefresh" radiusX="183.0" radiusY="55.0" styleClass="ellipse">
+        <Ellipse fx:id="guestEllipse" layoutX="300.0" layoutY="541.0" onMouseClicked="#guest" onMouseEntered="#setGuest" onMouseExited="#guestRefresh" radiusX="183.0" radiusY="55.0" styleClass="ellipse">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -34,7 +34,7 @@
                 <InnerShadow />
             </effect>
         </Ellipse>
-        <Label fx:id="guestLabel" onMouseClicked="#login" onMouseEntered="#setGuest" onMouseExited="#guestRefresh" styleClass="blackLabel" text="Continue as guest">
+        <Label fx:id="guestLabel" onMouseClicked="#guest" onMouseEntered="#setGuest" onMouseExited="#guestRefresh" styleClass="blackLabel" text="Continue as guest">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Label>

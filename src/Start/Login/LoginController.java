@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 import Database.DataConnect;
 import Database.DataUtil;
 
+import static Start.StartController.isGuest;
 
 public class LoginController implements Initializable {
 
@@ -149,6 +150,7 @@ public class LoginController implements Initializable {
 
     private void studentLogin() throws IOException {
 
+        isGuest = false;
         Stage stage = (Stage) button.getScene().getWindow();
 
         stage.close();
