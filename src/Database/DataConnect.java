@@ -10,7 +10,7 @@ public class DataConnect {
      * @return
      * @throws SQLException
      */
-    public static Connection getConnection()throws SQLException {
+    public static Connection getConnection() throws SQLException {
 
         Connection conn = null;
 

@@ -77,12 +77,20 @@ public class StartController implements Initializable {
     @FXML
     protected void setGuest(MouseEvent event) {
 
-        guestEllipse.setStyle("-fx-fill: #8c8c8c;");
+        guestEllipse.setStyle("-fx-fill: #D8D8D8;");
     }
 
     @FXML
     protected void guestRefresh(MouseEvent event) {
 
-        guestEllipse.setStyle("-fx-fill: #b3b3b3;");
+        guestEllipse.setStyle("-fx-fill: #A8A8A8;");
+    }
+    @FXML
+    protected void guestPressed(MouseEvent event) {
+        guestEllipse.setStyle("-fx-fill: #686868;");
+    }
+    @FXML
+    protected void loginPressed(MouseEvent event) {
+        loginEllipse.setStyle("-fx-fill: " + primaryDark + ";");
     }
 }

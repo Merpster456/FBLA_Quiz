@@ -153,7 +153,6 @@ public class LoginController implements Initializable {
         isGuest = false;
         Stage stage = (Stage) button.getScene().getWindow();
 
-        stage.close();
         Stage nextStage = new Stage();
         Pane root = FXMLLoader.load(getClass().getResource("/Quiz/Quiz.fxml"));
         Scene scene = new Scene(root);
@@ -161,5 +160,7 @@ public class LoginController implements Initializable {
         nextStage.setTitle("Quiz");
         nextStage.setScene(scene);
         nextStage.show();
+
+        stage.close();
     }
 }

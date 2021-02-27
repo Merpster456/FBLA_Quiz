@@ -3,12 +3,22 @@
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.geometry.Insets?>
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" styleClass="primary" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Quiz.QuizController">
-    <Rectangle height="200" width="1920" fill="#3d5878"/>
-    <Label text="FBLA Quiz!" AnchorPane.topAnchor="50" AnchorPane.leftAnchor="75" styleClass="topLabel" />
-    <VBox fx:id="quizBox" spacing="30" />
+    <ScrollPane prefHeight="1080.0" prefWidth="1920.0" styleClass="scrollPane" hbarPolicy="NEVER">
+
+        <Pane>
+            <Rectangle fill="#3d5878" height="200" width="1920" />
+            <Label layoutX="122.0" layoutY="58.0" styleClass="topLabel" text="FBLA Quiz!" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="58.0" />
+            <VBox fx:id="quizBox" layoutX="510.0" layoutY="270.0" prefHeight="450" prefWidth="900" maxHeight="450" maxWidth="900" spacing="30">
+                <padding>
+                    <Insets bottom="150"/>
+                </padding>
+            </VBox>
+        </Pane>
+    </ScrollPane>
     <stylesheets>
         <URL value="@../Style.css" />
     </stylesheets>
