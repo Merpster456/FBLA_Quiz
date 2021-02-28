@@ -30,7 +30,9 @@ public class QuizController implements Initializable {
 
     private Connection connection;
     private Statement statement;
-
+    public Dictionary<Integer, String> answers = new Hashtable();
+    public Dictionary<Boolean, Object> score = new Hashtable();
+    private ArrayList<Integer> questions = new ArrayList<Integer>();
 
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -54,7 +56,7 @@ public class QuizController implements Initializable {
         String question;
         String choices;
         String answer;
-
+        int id = 1;
         try {
             while (typeList.size() > 0){
                 connection = DataConnect.getConnection();
@@ -75,19 +77,23 @@ public class QuizController implements Initializable {
                 choices = rs.getString(2);
                 answer = rs.getString(3);
 
+                answers.put(id, answer);
+                questions.put(type, randInt);
+
                 switch (type) {
-                    case 1 -> setMultChoice(question, choices, answer);
-                    case 2 -> setTF(question, answer);
-                    case 3 -> setFill(question, answer);
-                    case 4 -> setDrop(question, choices, answer);
+                    case 1 -> setMultChoice(question, choices, Integer.toString(id));
+                    case 2 -> setTF(question, Integer.toString(id));
+                    case 3 -> setFill(question, Integer.toString(id));
+                    case 4 -> setDrop(question, choices, Integer.toString(id));
                 }
+                id++;
             }
 
        } catch (SQLException e) {
             System.err.println("ERROR: " + e);
         }
     }
-    public void setMultChoice(String question, String dirtyChoices, String answer) {
+    public void setMultChoice(String question, String dirtyChoices, String id) {
         /*
         This function sets the creates and adds multiple choice questions to the quiz.
          */
@@ -138,6 +144,7 @@ public class QuizController implements Initializable {
         choiceBox.setSpacing(20);
         // Creates the answer choices for multiple choice question.
         ToggleButton choice1 = new ToggleButton();
+        choice1.setId(id);
         value = random.nextInt(4);
         choice1.setText(listchoices.get(value));
         listchoices.remove(value);
@@ -147,6 +154,7 @@ public class QuizController implements Initializable {
         ToggleButton choice2 = new ToggleButton();
         value = random.nextInt(3);
         choice2.setText(listchoices.get(value));
+        choice2.setId(id);
         listchoices.remove(value);
         choice2.getStyleClass().add("toggleButtons");
         hBox2.getChildren().add(l2);
@@ -154,12 +162,14 @@ public class QuizController implements Initializable {
         ToggleButton choice3 = new ToggleButton();
         value = random.nextInt(2);
         choice3.setText(listchoices.get(value));
+        choice3.setId(id);
         listchoices.remove(value);
         choice3.getStyleClass().add("toggleButtons");
         hBox3.getChildren().add(l3);
         hBox3.getChildren().add(choice3);
         ToggleButton choice4 = new ToggleButton();
         choice4.setText(listchoices.get(0));
+        choice4.setId(id);
         choice4.getStyleClass().add("toggleButtons");
         hBox4.getChildren().add(l4);
         hBox4.getChildren().add(choice4);
@@ -181,9 +191,8 @@ public class QuizController implements Initializable {
         stack.getChildren().add(innerBox);
         quizBox.getChildren().add(stack);
     }
-    public void setTF(String question, String answer) {
+    public void setTF(String question, String id) {
 
-        boolean tf = answer.matches("1");
         VBox innerBox = new VBox();
         StackPane stack = new StackPane();
         Rectangle rectangle = new Rectangle();
@@ -203,9 +212,11 @@ public class QuizController implements Initializable {
         VBox choiceBox = new VBox();
         choiceBox.setSpacing(20);
         ToggleButton trueButton = new ToggleButton();
+        trueButton.setId(id);
         trueButton.setText("True");
         trueButton.getStyleClass().add("toggleButtons");
         ToggleButton falseButton = new ToggleButton();
+        falseButton.setId(id);
         falseButton.setText("False");
         falseButton.getStyleClass().add("toggleButtons");
         ToggleGroup group = new ToggleGroup();
@@ -261,7 +272,7 @@ public class QuizController implements Initializable {
     }
 
      */
-    public void setFill(String question, String answer) {
+    public void setFill(String question, String id) {
         VBox innerBox = new VBox();
         StackPane stack = new StackPane();
         Rectangle rectangle = new Rectangle();
@@ -279,6 +290,7 @@ public class QuizController implements Initializable {
         qLabel.getStyleClass().add("question");
         qLabel.setWrapText(true);
         TextField fill = new TextField();
+        fill.setId(id);
         fill.setPrefHeight(25);
         fill.setPrefWidth(50);
         fill.setMaxHeight(25);
@@ -295,7 +307,7 @@ public class QuizController implements Initializable {
         stack.getChildren().add(innerBox);
         quizBox.getChildren().add(stack);
     }
-    public void setDrop(String question, String dirtyChoices, String answer) {
+    public void setDrop(String question, String dirtyChoices, String id) {
         VBox innerBox = new VBox();
         StackPane stack = new StackPane();
         Rectangle rectangle = new Rectangle();
@@ -313,6 +325,7 @@ public class QuizController implements Initializable {
         qLabel.getStyleClass().add("question");
         qLabel.setWrapText(true);
         ChoiceBox<String> drop = new ChoiceBox<String>();
+        drop.setId(id);
         String[] choices = dirtyChoices.split(",");
         for (String choice:choices) {
            drop.getItems().add(choice);
@@ -341,8 +354,17 @@ public class QuizController implements Initializable {
                             if (vbox instanceof VBox) {
                                 for (Node gen3: ((VBox) vbox).getChildren()) {
                                     if (gen3 instanceof VBox){
-                                        for (Node toggleGroup: ((VBox) gen3).getChildren()){
+                                        for (Node toggle: ((VBox) gen3).getChildren()){
+                                            if(toggle instanceof ToggleButton){
+                                                if (((ToggleButton) toggle).isSelected()) {
+                                                    String answer = ((ToggleButton) toggle).getText();
+                                                    String id = toggle.getId();
+                                                    if (answers.get(id) == answer) {
 
+                                                    } else {
+
+                                                    }
+                                                }
                                             }
                                         }
                                     }
