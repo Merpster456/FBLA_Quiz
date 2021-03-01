@@ -38,7 +38,7 @@ public class StartController implements Initializable {
 
         stage.close();
         Stage nextStage = new Stage();
-        Pane root = FXMLLoader.load(getClass().getResource("/Start/Login/Login.fxml"));
+        Pane root = FXMLLoader.load(getClass().getResource("/Start/Login/QuizLogin.fxml"));
         Scene scene = new Scene(root);
         nextStage.setResizable(false);
         nextStage.setTitle("Login");
