@@ -32,13 +32,13 @@ public class StartController implements Initializable {
     }
 
     @FXML
-    protected void login(MouseEvent event) throws IOException {
+    protected void loginPage(MouseEvent event) throws IOException {
 
         Stage stage = (Stage) loginEllipse.getScene().getWindow();
 
         stage.close();
         Stage nextStage = new Stage();
-        Pane root = FXMLLoader.load(getClass().getResource("/Start/Login/QuizLogin.fxml"));
+        Pane root = FXMLLoader.load(getClass().getResource("/Start/Login/Login.fxml"));
         Scene scene = new Scene(root);
         nextStage.setResizable(false);
         nextStage.setTitle("Login");

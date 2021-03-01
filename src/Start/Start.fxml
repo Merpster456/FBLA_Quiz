@@ -13,7 +13,7 @@
         <Label styleClass="topLabel" text="FBLA Quiz!" textAlignment="CENTER" />
     </HBox>
     <StackPane layoutX="117.0" layoutY="275.0">
-        <Ellipse fx:id="loginEllipse" onMouseClicked="#login"  onMouseEntered="#setLogin" onMousePressed="#loginPressed" onMouseExited="#loginRefresh" radiusX="183.0" radiusY="55.0" styleClass="ellipse">
+        <Ellipse fx:id="loginEllipse" onMouseClicked="#loginPage"  onMouseEntered="#setLogin" onMousePressed="#loginPressed" onMouseExited="#loginRefresh" radiusX="183.0" radiusY="55.0" styleClass="ellipse">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -21,7 +21,7 @@
                 <InnerShadow />
             </effect>
         </Ellipse>
-        <Label fx:id="loginLabel" onMouseClicked="#login" onMouseEntered="#setLogin" onMousePressed="#loginPressed" onMouseExited="#loginRefresh" styleClass="whiteLabel" text="Login">
+        <Label fx:id="loginLabel" onMouseClicked="#loginPage" onMouseEntered="#setLogin" onMousePressed="#loginPressed" onMouseExited="#loginRefresh" styleClass="whiteLabel" text="Login">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Label>
