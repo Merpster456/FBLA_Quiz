@@ -153,7 +153,6 @@ QuizController implements Initializable {
                 DataUtil.close(statement);
                 DataUtil.close(connection);
                 id++;
-                System.out.println(answers.keySet());
             }
         }
     }
@@ -485,7 +484,6 @@ QuizController implements Initializable {
                                                                 if (((ToggleButton) toggle).getToggleGroup().getSelectedToggle().isSelected()) {
                                                                     if (((ToggleButton) toggle).isSelected()){
                                                                         String answer = ((ToggleButton) toggle).getText();
-                                                                        System.out.println(answer);
                                                                         String dirtyID = toggle.getId();
                                                                         int id = Integer.parseInt(dirtyID);
                                                                         switch (id) {
