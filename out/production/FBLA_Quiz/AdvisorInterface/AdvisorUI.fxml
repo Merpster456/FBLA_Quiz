@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+<?import java.net.URL?>
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" styleClass="primary" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdvisorInterface.AdvisorController">
+    <Rectangle fill="#3d5878" height="200" width="1920" />
+    <Label fx:id="welcomeLabel" layoutX="122.0" layoutY="58.0" styleClass="topLabel" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="58.0" />
+    <HBox styleClass="primaryDark" prefHeight="500"  layoutX="510.0" layoutY="270" spacing="10">
+        <padding>
+            <Insets topRightBottomLeft="10"/>
+        </padding>
+        <TableView fx:id="scoreTable" prefHeight="480" prefWidth="500">
+            <columns>
+                <TableColumn fx:id="idCol" text="ID" prefWidth="125"/>
+                <TableColumn fx:id="firstCol" text="First Name" prefWidth="102"/>
+                <TableColumn fx:id="lastCol" text="Last Name" prefWidth="102"/>
+                <TableColumn fx:id="scoreCol" text="Score" prefWidth="84"/>
+                <TableColumn fx:id="dateCol" text="Date" prefWidth="84"/>
+            </columns>
+        </TableView>
+        <VBox spacing="50" >
+            <padding>
+                <Insets top="50" left="10"/>
+            </padding>
+            <Button text="Manage&#10;Users" onAction="#manageUsers" styleClass="richBlue" prefWidth="150" prefHeight="100"/>
+            <Button text="Print" onAction="#print" styleClass="richBlue" prefWidth="150" prefHeight="100"/>
+        </VBox>
+    </HBox>
+    <stylesheets>
+        <URL value="@../Style.css" />
+    </stylesheets>
+</AnchorPane>

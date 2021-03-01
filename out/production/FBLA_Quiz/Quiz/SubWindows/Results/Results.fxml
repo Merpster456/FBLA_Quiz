@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+<?import java.net.URL?>
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" styleClass="primary" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Quiz.SubWindows.Results.Results">
+    <ScrollPane prefHeight="1080.0" prefWidth="1920.0" styleClass="scrollPane" hbarPolicy="NEVER">
+        <Pane fx:id="pane">
+            <Label fx:id="score" layoutY="400" layoutX="200" styleClass="score"/>
+            <Rectangle fill="#3d5878" height="200" width="1920" />
+            <Label layoutX="122.0" layoutY="58.0" styleClass="topLabel" text="FBLA Quiz!" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="58.0" />
+            <VBox fx:id="quizBox" layoutX="510.0" layoutY="270.0" prefHeight="450" prefWidth="900" maxHeight="450" maxWidth="900" spacing="30">
+                <padding>
+                    <Insets bottom="150"/>
+                </padding>
+            </VBox>
+        </Pane>
+    </ScrollPane>
+    <stylesheets>
+        <URL value="@../../../Style.css" />
+    </stylesheets>
+</AnchorPane>
