@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-
-<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" styleClass="primary" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdvisorInterface.ManageUsers.ManageUsers">
     <HBox styleClass="primaryDark" alignment="CENTER" prefHeight="125" prefWidth="1920">
         <Label styleClass="topLabel" contentDisplay="CENTER" text="Manage Users"/>

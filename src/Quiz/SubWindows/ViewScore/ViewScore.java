@@ -1,11 +1,7 @@
 package Quiz.SubWindows.ViewScore;
 
-import static Quiz.QuizController.*;
-import static Start.Login.LoginController.id;
-
 import Database.DataConnect;
 import Database.DataUtil;
-import com.sun.javafx.collections.MappingChange;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,16 +13,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
+
+import static Quiz.QuizController.*;
+import static Start.Login.LoginController.id;
 
 public class ViewScore implements Initializable {
 

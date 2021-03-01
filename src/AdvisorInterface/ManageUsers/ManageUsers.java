@@ -1,5 +1,6 @@
 package AdvisorInterface.ManageUsers;
 
+import Database.DataConnect;
 import Database.DataUtil;
 import Objects.Student;
 import javafx.collections.FXCollections;
@@ -20,16 +21,17 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
-import Database.DataConnect;
-import javafx.stage.StageStyle;
 
 public class ManageUsers implements Initializable {
 

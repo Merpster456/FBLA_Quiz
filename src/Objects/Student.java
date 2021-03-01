@@ -1,15 +1,15 @@
 package Objects;
 
-import javafx.beans.property.*;
-
-import java.sql.SQLException;
-import java.util.Random;
-
 import Database.DataConnect;
 import Database.DataUtil;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Random;
 
 public class Student {
     private StringProperty id;
