@@ -105,6 +105,10 @@ public class LoginController implements Initializable {
             rs = statement.executeQuery(sql);
             int isAdvisor = rs.getInt(5);
 
+            DataUtil.close(rs);
+            DataUtil.close(statement);
+            DataUtil.close(connection);
+
             try {
                 if (isAdvisor == 1) advisorLogin();
                 else if (isAdvisor == 0) studentLogin();
