@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<?import javafx.geometry.Insets?>
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" styleClass="primary" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Quiz.SubWindows.ViewScore.ViewScore">
+    <Rectangle fill="#3d5878" height="200" width="1920" />
+    <Label layoutX="122.0" layoutY="58.0" styleClass="topLabel" text="FBLA Quiz!" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="58.0" />
+    <StackPane layoutX="510.0" layoutY="270.0">
+        <Rectangle height="450" width="900" arcHeight="50" arcWidth="50" fill="white"/>
+        <VBox spacing="200">
+            <padding>
+                <Insets top="50" left="40"/>
+            </padding>
+            <Label styleClass="greyLabel" text="Your response has been recorded."/>
+            <Button fx:id="button" text="View Score" styleClass="richBlue" onAction="#results"/>
+        </VBox>
+    </StackPane>
+    <stylesheets>
+        <URL value="@../../../Style.css" />
+    </stylesheets>
+</AnchorPane>

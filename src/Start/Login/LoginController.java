@@ -69,14 +69,13 @@ public class LoginController implements Initializable {
      * then calls the login function
      *
      * @param event
-     * @throws Exception
      */
     @FXML
-    protected void reactToClick(ActionEvent event) throws Exception {
+    protected void reactToClick(ActionEvent event) {
 
 
-        String id = (String) this.textField.getText();
-        String password = (String) this.passwordField.getText();
+        String id = this.textField.getText();
+        String password = this.passwordField.getText();
         findUser(id, password);
     }
 
@@ -87,9 +86,8 @@ public class LoginController implements Initializable {
      *
      * @param id
      * @param password
-     * @throws IOException
      */
-    private void findUser(String id, String password) throws IOException {
+    private void findUser(String id, String password) {
 
         ResultSet rs = null;
 
@@ -101,13 +99,12 @@ public class LoginController implements Initializable {
             connection = DataConnect.getConnection();
             statement = connection.createStatement();
             rs = statement.executeQuery(sql);
-            System.out.print(rs.getString(3));
-            String advisor = rs.getString(3);
+            int isAdvisor = rs.getInt(5);
 
             try {
+                if (isAdvisor == 1) advisorLogin();
+                else if (isAdvisor == 0) studentLogin();
 
-                if (advisor.equals("1")) advisorLogin();
-                else if (advisor.equals("0")) studentLogin();
             } catch (IOException e) {
 
                 System.err.println("Error: " + e);
@@ -118,7 +115,6 @@ public class LoginController implements Initializable {
 
             System.err.println(e.getStackTrace()[0].getLineNumber());
             System.out.println("Error: " + e);
-
             errorMessage.setText("Wrong User or Pass");
             errorMessage.setTextFill(CRIMSON);
         } finally {

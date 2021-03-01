@@ -42,17 +42,124 @@
     -fx-background-color: transparent;
     -fx-background: transparent;
 }
+.errorRect {
+    -fx-fill: #B22222
+}
 .question {
     -fx-font-size: 30px;
     -fx-font-weight: bold;
     -fx-text-fill: #181A18;
+}
+.warning {
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #B22222
+}
+.table-view .filler {
+
+    -fx-background-color: #5377a1;
+}
+.table-view .column-header-background{
+
+    -fx-background-color: #5377a1;
+}
+.table-view .column-header-background .label{
+
+    -fx-background-color: #5377a1;
+    -fx-text-fill: white;
+}
+.table-view .column-header {
+
+    -fx-background-color: transparent;
+}
+.table-view .table-cell{
+
+    -fx-text-fill: white;
+}
+.table-view .table-cell:odd{
+
+    -fx-text-fill: white;
+}
+.table-row-cell{
+
+    -fx-background-color: -fx-table-cell-border-color, #789cc7;
+}
+.table-row-cell:odd{
+
+    -fx-background-color: -fx-table-cell-border-color, #5377a1;
+}
+.table-row-cell:selected {
+
+    -fx-background-color: #005797;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+.table-view > .virtual-flow > .scroll-bar:vertical,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track-background,
+.table-view > .virtual-flow > .scroll-bar:horizontal,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
+    -fx-background-color: #5377a1;
+}
+
+.tab-pane .tab {
+
+    -fx-background-color: #5377a1;
+    -fx-text-color: white;
+    -fx-font-weight: bold;
+}
+.tab-pane .tab-header-background {
+
+    -fx-background-color: #5377a1;
+}
+.tab-pane .tab-content-area {
+
+    -fx-background-color: #789cc7;
+}
+.tab-pane .tab:selected {
+
+    -fx-background-color: #789cc7;
+    -fx-background-insets: 0 0 -1 0, 1 1 -1 1;
+    -fx-background-radius: 5 5 0 0, 4 4 0 0;
+    -fx-font-weight: bold;
+    -fx-text-color: black
+}
+.score {
+    -fx-font-size: 40;
+    -fx-font-weight: bold;
+    -fx-text-fill: #181A18;
+}
+.correct {
+    -fx-fill: #90EE90;
+}
+.wrong {
+    -fx-fill: #fd5c63;
+}
+.correction {
+    -fx-text-fill: #AB0003;
+    -fx-font-weight: bold;
+    -fx-font-size: 25px;
 }
 .secondText {
      -fx-font-size: 25px;
      -fx-font-weight: bold;
      -fx-text-fill: #181A18;
  }
- .submitButton {
+ .greyLabel {
+     -fx-font-size: 40px;
+     -fx-font-weight: bold;
+     -fx-text-fill: #808080;
+ }
+ .back {
+
+     -fx-background-color: transparent;
+     -fx-font-size: 35px;
+     -fx-font-weight: bold;
+     -fx-text-fill: white;
+ }
+ .richBlue {
     -fx-background-color:
         #000000,
         linear-gradient(#7ebcea, #2f4b8f),
@@ -65,7 +172,7 @@
     -fx-font-size: 20px;
     -fx-font-weight: bold
 }
-.submitButton Text {
+.richBlue Text {
     -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
  }
 .toggleButtons {
