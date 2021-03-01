@@ -36,6 +36,8 @@ public class StartController implements Initializable {
 
         Stage stage = (Stage) loginEllipse.getScene().getWindow();
 
+        System.out.println(getClass().getResource("/Start/Login/Login.fxml").getPath());
+
         stage.close();
         Stage nextStage = new Stage();
         Pane root = FXMLLoader.load(getClass().getResource("/Start/Login/Login.fxml"));
