@@ -12,9 +12,9 @@
         <padding>
             <Insets topRightBottomLeft="10"/>
         </padding>
-        <TableView fx:id="scoreTable" prefHeight="480" prefWidth="500">
+        <TableView fx:id="scoreTable" prefHeight="480" prefWidth="528">
             <columns>
-                <TableColumn fx:id="idCol" text="ID" prefWidth="125"/>
+                <TableColumn fx:id="idCol" text="ID" prefWidth="150"/>
                 <TableColumn fx:id="firstCol" text="First Name" prefWidth="102"/>
                 <TableColumn fx:id="lastCol" text="Last Name" prefWidth="102"/>
                 <TableColumn fx:id="scoreCol" text="Score" prefWidth="84"/>
