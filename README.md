@@ -50,7 +50,7 @@ cd $path
 
 sudo chmod u+x mac_start.command
 ```
->This command will prompt you for your password. Type in the administrator password for the computer and press enter. This command is giving my program the right to run on your machine.
+>This command will prompt you for your password. Type in the administrator password for the computer and press enter. This command is giving the program the right to run on your computer.
 
 5. Finally start the program with one last command.
 ```
