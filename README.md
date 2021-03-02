@@ -43,6 +43,7 @@ If you are not experienced with command line thats completely fine, just follow 
 path=$(find ~/ -type d -name FBLA_Quiz-master)
 ```
 > Alot of text will be generated on your screen, don't worry this is supposed to happen.
+
 4. When the command finishes (words stop popping onto your screen) type commands below. (Press enter after you finish typing each line)
 ```
 cd $path
@@ -50,10 +51,12 @@ cd $path
 sudo chmod u+x mac_start.command
 ```
 >This command will prompt you for your password. Type in the administrator password for the computer and press enter. This command is giving my program the right to run on your machine.
+
 5. Finally start the program with one last command.
 ```
 ./mac_start.command
 ```
+
 
 ## Login
 
