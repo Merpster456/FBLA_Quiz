@@ -12,7 +12,7 @@
         <padding>
             <Insets topRightBottomLeft="10"/>
         </padding>
-        <TableView fx:id="scoreTable" prefHeight="480" prefWidth="500">
+        <TableView fx:id="scoreTable" prefHeight="480" prefWidth="503">
             <columns>
                 <TableColumn fx:id="idCol" text="ID" prefWidth="125"/>
                 <TableColumn fx:id="firstCol" text="First Name" prefWidth="102"/>
