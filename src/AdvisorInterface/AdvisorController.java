@@ -119,6 +119,7 @@ public class AdvisorController implements Initializable {
         Stage nextStage = new Stage();
         Pane root = FXMLLoader.load(getClass().getResource("/AdvisorInterface/ManageUsers/ManageUsers.fxml"));
         Scene scene = new Scene(root);
+        nextStage.setTitle("Manage Users");
         nextStage.setResizable(false);
         nextStage.setScene(scene);
         nextStage.show();

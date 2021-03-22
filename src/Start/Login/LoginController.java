@@ -94,7 +94,6 @@ public class LoginController implements Initializable {
     private void findUser(String id, String password) {
 
         ResultSet rs = null;
-
         String sql = "SELECT * FROM users WHERE id = '" + id + "' and pass = '" + password + "';";
         LoginController.id = id;
 
@@ -147,7 +146,7 @@ public class LoginController implements Initializable {
         Pane root = FXMLLoader.load(getClass().getResource("/AdvisorInterface/AdvisorUI.fxml"));
         Scene scene = new Scene(root);
         nextStage.setResizable(false);
-        nextStage.setTitle("AdvisorUI");
+        nextStage.setTitle("Advisor");
         nextStage.setScene(scene);
         nextStage.show();
     }
