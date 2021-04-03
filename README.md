@@ -16,55 +16,45 @@ When you click the link, the download process is very simple, scroll down to whe
 
 ## Getting Started
 
-### You are able to do this part one of two ways 
+#### To make running the file easier, you need to clone the repository over the command line
 
-1. **Find the download button in green at the top right corner of the page (clone or download). Click this then click the Download ZIP option.**
+To do this follow these steps:
 
-Once downloaded extract the zip and proceed to Mac Start.
-
-2. **Open your terminal and type the following command.**
+1. Open spotlight search by either pressing ⌘ + spacebar or clicking the magnifying glass in the top right of your screen.
+2. Then procede to type 'terminal' then press enter.
+3. Afterwards a small window should pop up and give you the ability to type into it. Once the window is present type the commands below and press enter.
 
 ```
 git clone https://github.com/merpster456/FBLA_Quiz.git FBLA_Quiz-master
 ```
-
-### NOTE
-
-**If you clone this repository using git on the command line make sure to rename the directory from FBLA_Quiz to FBLA-Quiz-master**
+After the download has completed leave the terminal window open and proceed to Mac Start.
 
 ### Mac Start
 
 To run the program on a mac is very simple. All you need is to run a few commands on your terminal. 
 
-#### Command Line Start 
-
 > NOTE: This setup used to be much easier however, due to a new mac update a couple additional steps had to be added.
 
-If you are more experienced with command line, all you need to do is: cd to the project directory, use chmod to give the mac_start.command file permission to execute, then run it.
+If you are more experienced with command line, all you need to do is: cd into the project directory, use chmod to give the mac_start.command file permission to execute, then run it.
 
 If you are not experienced with command line thats completely fine, just follow these steps.
 
-1. Open spotlight search by either pressing ⌘ + spacebar or clicking the magnifying glass in the top right of your screen.
-2. Then procede to type 'terminal' then press enter.
-3. Afterwards a small window should pop up and give you the ability to type into it. Once the window is present type the commands below and press enter.
-```
-path=$(find ~/ -type d -name FBLA_Quiz-master)
-```
-> Alot of text will be generated on your screen, don't worry this is supposed to happen.
+1. Move into the project folder by typing the command below then click enter.
 
-4. When the command finishes (words stop popping onto your screen) type commands below. (Press enter after you finish typing each line)
 ```
-cd $path
+cd FBLA_Quiz-master
+```
 
+2. Then you need to give the program permission to execute by running the following command.
+```
 sudo chmod u+x mac_start.command
 ```
 >This command will prompt you for your password. Type in the administrator password for the computer and press enter. This command is giving the program the right to run on your computer.
 
-5. Finally start the program with one last command.
+3. Finally start the program with one last command.
 ```
 ./mac_start.command
 ```
-
 
 ## Login
 
