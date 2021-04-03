@@ -16,9 +16,17 @@ When you click the link, the download process is very simple, scroll down to whe
 
 ## Getting Started
 
-**Find the download button in green at the top right corner of the page (clone or download). Click this then click the Download ZIP option.**
+### You are able to do this part one of two ways 
+
+1. **Find the download button in green at the top right corner of the page (clone or download). Click this then click the Download ZIP option.**
 
 Once downloaded extract the zip and proceed to Mac Start.
+
+2. **Open your terminal and type the following command.**
+
+```
+git clone https://github.com/merpster456/FBLA_Quiz.git FBLA_Quiz-master
+```
 
 ### NOTE
 
@@ -32,7 +40,7 @@ To run the program on a mac is very simple. All you need is to run a few command
 
 > NOTE: This setup used to be much easier however, due to a new mac update a couple additional steps had to be added.
 
-If you are more experienced with command line, all you need to do is: go to the project directory, give the mac_start.command file permission to execute, then run it.
+If you are more experienced with command line, all you need to do is: cd to the project directory, use chmod to give the mac_start.command file permission to execute, then run it.
 
 If you are not experienced with command line thats completely fine, just follow these steps.
 
