@@ -11,6 +11,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
 
+    /**
+     * Class creates a student object.
+     * This is important because FXML tables use objects as their data.
+     * As well as using objects instead of corresponding individual values is a much more organized way to handle data.
+     */
 public class Student {
     private StringProperty id;
     private StringProperty firstName;
@@ -18,6 +23,9 @@ public class Student {
     private StringProperty score;
     private StringProperty date;
 
+    /**
+     * Getter and setter methods for the Student object.
+     */
     public void setId(String id) {
         this.id = new SimpleStringProperty(id);
     }
@@ -64,6 +72,9 @@ public class Student {
         return date;
     }
 
+    /**
+     * Various constructor methods due to different tables only needing certain properties.
+     */
     public Student(String id, String first, String last, String score, String date){
 
         this.id = new SimpleStringProperty(id);
@@ -78,6 +89,15 @@ public class Student {
         this.firstName = new SimpleStringProperty(first);
         this.lastName = new SimpleStringProperty(last);
     }
+
+    /**
+     * Method automatically generates a users ID.
+     * ID is created by the combination of user's first name, last name, and 3 random digits.
+     *
+     * @param First
+     * @param Last
+     * @return
+     */
     public static String GenerateID(String First, String Last) {
 
         Connection connection = null;
@@ -103,6 +123,12 @@ public class Student {
         else return GenerateID(first, last);
     }
 
+    /**
+     * Method automatically generates a new user's password.
+     * Password is created in combination of 4 zeros, and 4 random digits.
+     *
+     * @return
+     * */
     public static String GeneratePass(){
 
         Random rand = new Random();
@@ -121,6 +147,13 @@ public class Student {
         return pass;
     }
 
+        /**
+         * Method that checks to ascertain that the new user's ID is not already taken.
+         * If this is so, the user gets a new ID and will be checked again, until their ID is not taken.
+         *
+         * @param ID
+         * @return
+         */
     private static Boolean check(String ID) {
 
         Connection connection = null;
@@ -148,5 +181,4 @@ public class Student {
             DataUtil.close(connection);
         }
     }
-
 }

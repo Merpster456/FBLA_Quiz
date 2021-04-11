@@ -22,8 +22,15 @@ public class StartController implements Initializable {
     public static String primary = "#5377a1";
     public static String primaryLight = "#789cc7";
 
-    public static boolean isGuest;
+    public static boolean isGuest; // Separates guests from users
 
+    /**
+     * Method that initializes page.
+     * Sets original button colors for good measure.
+     *
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -31,6 +38,13 @@ public class StartController implements Initializable {
         guestRefresh(null);
     }
 
+    /**
+     * Method puts functionality behind the "Login" button.
+     * When clicked, opens Login.fxml.
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     protected void loginPage(MouseEvent event) throws IOException {
 
@@ -46,6 +60,13 @@ public class StartController implements Initializable {
         nextStage.show();
     }
 
+    /**
+     * Method adds functionality behind the "guest" button.
+     * On click, sets isGuest value to true, and opens Quiz.fxml.
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     protected void guest(MouseEvent event) throws IOException {
 
@@ -62,33 +83,65 @@ public class StartController implements Initializable {
         nextStage.show();
     }
 
+    /**
+     * Method that changes color of the "Login" button when the mouse is hovering over it.
+     *
+     * @param event
+     */
     @FXML
     protected void setLogin(MouseEvent event) {
 
         loginEllipse.setStyle("-fx-fill: " + primaryLight + ";");
     }
 
+    /**
+     * Method that changes the "Login" button back to its original color when the mouse is no longer over the button.
+     *
+     * @param event
+     */
     @FXML
     protected void loginRefresh(MouseEvent event) {
 
         loginEllipse.setStyle("-fx-fill: " + primary + ";");
     }
 
+    /**
+     * Method that changes color of the "Guest" button when the mouse is hovering over it.
+     *
+     * @param event
+     */
     @FXML
     protected void setGuest(MouseEvent event) {
 
         guestEllipse.setStyle("-fx-fill: #D8D8D8;");
     }
 
+    /**
+     * Method that changes the "Login" button back to its original color when the mouse is no longer over the button.
+     *
+     * @param event
+     */
     @FXML
     protected void guestRefresh(MouseEvent event) {
 
         guestEllipse.setStyle("-fx-fill: #A8A8A8;");
     }
+
+    /**
+     * Method that changes the color of the "Guest" button when pressed.
+     *
+     * @param event
+     */
     @FXML
     protected void guestPressed(MouseEvent event) {
         guestEllipse.setStyle("-fx-fill: #686868;");
     }
+
+    /**
+     * Method that changes the color of the "Login" button when pressed.
+     *
+     * @param event
+     */
     @FXML
     protected void loginPressed(MouseEvent event) {
         loginEllipse.setStyle("-fx-fill: " + primaryDark + ";");

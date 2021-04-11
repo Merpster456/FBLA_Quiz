@@ -55,6 +55,13 @@ public class ManageUsers implements Initializable {
     private Connection connection;
     private Statement statement;
 
+    /**
+     * Method that initializes page.
+     * Populates table, then sets up user input.
+     *
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb){
 
@@ -62,6 +69,10 @@ public class ManageUsers implements Initializable {
         setBox();
     }
 
+    /**
+     * Method that gathers the data to put into table.
+     * This data consists of all users that are not advisors.
+     */
     private void setTable(){
 
         String SQL = "SELECT * FROM Users WHERE advisor = 0;";
@@ -106,9 +117,15 @@ public class ManageUsers implements Initializable {
             DataUtil.close(statement);
             DataUtil.close(connection);
         }
-
     }
 
+    /**
+     * Method that adds functionality behind the "Back" button.
+     * When button is clicked, it opens AdvisorUI.fxml
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     protected void back(ActionEvent event) throws IOException {
 
@@ -117,11 +134,30 @@ public class ManageUsers implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
     }
+
+    /**
+     * Method that changes the "Back" button's color when the mouse is hovering over it.
+     *
+     * @param event
+     */
     @FXML protected void backChange(MouseEvent event) { back.setStyle("-fx-text-fill: black"); }
+
+    /**
+     * Method that changes the "Back" button to its original color when the mouse is no longer hovering over it.
+     *
+     * @param event
+     */
     @FXML protected void refresh(MouseEvent event) {
         back.setStyle("-fx-text-fill: white");
     }
 
+    /**
+     * Method that adds functionality to the "Submit" button.
+     * On click the given values will be entered into a new Person in the database.
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     protected void submit(ActionEvent event) throws IOException {
 
@@ -151,7 +187,10 @@ public class ManageUsers implements Initializable {
 
             try {
 
+                // ID is automatically generated as a combination of the users first name, last name, and 3 random digits.
                 String id = Student.GenerateID(first, last);
+
+                // Password is automatically generated as an 8 digit code containing, four 0's and four random numbers
                 String pass = Student.GeneratePass();
 
                 String sql = "INSERT INTO Users VALUES ('" + id + "', '" +  pass +
@@ -180,6 +219,14 @@ public class ManageUsers implements Initializable {
             }
         }
     }
+
+    /**
+     * Method that adds functionality to the "Cancel" button on the add user tab.
+     * On click, it will clear and void all values currently within the text boxes.
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     protected void cancel(ActionEvent event) throws IOException{
 
@@ -190,6 +237,13 @@ public class ManageUsers implements Initializable {
         lastErr.setText("");
         err.setText("");
     }
+
+    /**
+     * Method that shows the id and password of the new user.
+     *
+     * @param id
+     * @param pass
+     */
     private void showCreds(String id, String pass) {
 
         Stage newStage = new Stage();
@@ -225,6 +279,9 @@ public class ManageUsers implements Initializable {
         newStage.show();
     }
 
+    /**
+     * Method that generates the choices for the drop down boxes.
+     */
     private void setBox(){
 
         String sql = "SELECT id FROM Users WHERE advisor=0;";
@@ -263,7 +320,8 @@ public class ManageUsers implements Initializable {
     }
 
     /**
-     * Method to delete users from Persons table
+     * Method to delete users from Users table
+     *
      * @param event
      * @throws IOException
      */
@@ -317,7 +375,8 @@ public class ManageUsers implements Initializable {
     }
 
     /**
-     * Method to change user data!
+     * Method to change user data.
+     *
      * @param event
      */
     @FXML
@@ -380,6 +439,12 @@ public class ManageUsers implements Initializable {
         setBox();
     }
 
+    /**
+     * Method that adds functionality to "Cancel" button on the change user tab.
+     * Clears text boxes.
+     *
+     * @param event
+     */
     @FXML
     protected void changeCancel(ActionEvent event) {
 
@@ -388,7 +453,6 @@ public class ManageUsers implements Initializable {
 
         changeFirst.setText("");
         changeLast.setText("");
-
         changeErr.setText("");
     }
 }

@@ -624,6 +624,13 @@ QuizController implements Initializable {
         });
         quizBox.getChildren().add(submit);
     }
+
+    /**
+     * Method that is called if all questions are answered and the "Submit" button is clicked.
+     * Opens ViewScore.fxml.
+     *
+     * @throws IOException
+     */
     public void setViewScore() throws IOException {
         Stage stage = (Stage) quizBox.getScene().getWindow();
 

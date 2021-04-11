@@ -35,14 +35,19 @@ public class LoginController implements Initializable {
     @FXML private PasswordField passwordField;
     @FXML private Label errorMessage;
     @FXML private Label topLabel;
-    @FXML private Label idLabel;
-    @FXML private Label passLabel;
 
     private Connection connection;
     private Statement statement;
 
     public static String id;
 
+    /**
+     * Method that initializes page.
+     * Checks that program is connected to sqlite database.
+     *
+     * @param url
+     * @param rb
+     */
     public void initialize(URL url, ResourceBundle rb) {
 
         try {
@@ -69,8 +74,7 @@ public class LoginController implements Initializable {
     }
 
     /**
-     * Gets value of the login fields,
-     * then calls the login function
+     * Method that retrieves the value of the login fields, then calls the login function.
      *
      * @param event
      */
@@ -84,9 +88,9 @@ public class LoginController implements Initializable {
     }
 
     /**
-     * Checks for user with given
-     * credentials then logs into
-     * respective interfaces
+     * Method that verifies whether the given values correspond with a user.
+     * If so, it logs into the user's respective interface.
+     * If not, a error message is raised alerting the user that either the username or password was incorrect.
      *
      * @param id
      * @param password
@@ -109,6 +113,8 @@ public class LoginController implements Initializable {
             DataUtil.close(connection);
 
             try {
+
+                // Checks whether the user is an advisor or not, and calls respective functions.
                 if (isAdvisor == 1) advisorLogin();
                 else if (isAdvisor == 0) studentLogin();
 
@@ -133,7 +139,8 @@ public class LoginController implements Initializable {
     }
 
     /**
-     * Logs into advisor interface
+     * Method that logs into the advisor interface.
+     * Opens AdvisorUI.fxml.
      *
      * @throws IOException
      */
@@ -151,9 +158,15 @@ public class LoginController implements Initializable {
         nextStage.show();
     }
 
+    /**
+     * Method that logs into the Quiz as the corresponding user.
+     * Opens Quiz.fxml.
+     *
+     * @throws IOException
+     */
     private void studentLogin() throws IOException {
 
-        isGuest = false;
+        isGuest = false; // Since the user logged into their account, they are not a guest.
         Stage stage = (Stage) button.getScene().getWindow();
 
         Stage nextStage = new Stage();

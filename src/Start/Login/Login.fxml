@@ -5,13 +5,29 @@
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 
-<GridPane fx:id="grid" fx:controller="Start.Login.LoginController" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" vgap="10">
-    <padding><Insets top="25" right="50" bottom="25" left="50"/></padding>
-    <Label fx:id="topLabel" text="FBLA Quiz!" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" />
-    <TextField fx:id="textField" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.halignment="CENTER" promptText="ID" focusTraversable="false"/>
-    <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.halignment="CENTER" promptText="Password" focusTraversable="false"/>
-    <Button fx:id="button" text="Login" GridPane.rowIndex="4" GridPane.columnSpan="2" onAction="#reactToClick" GridPane.halignment="CENTER" defaultButton="true"/>
+<!-- Grid Pane allows for an easy design for a small login window -->
+<GridPane fx:id="grid" fx:controller="Start.Login.LoginController" xmlns="http://javafx.com/javafx/11.0.1"
+          xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" vgap="10">
+
+    <padding>
+        <Insets top="25" right="50" bottom="25" left="50"/>
+    </padding>
+
+    <Label fx:id="topLabel" text="FBLA Quiz!" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="3"
+           GridPane.halignment="CENTER" />
+
+    <TextField fx:id="textField" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.halignment="CENTER"
+               promptText="ID" focusTraversable="false"/>
+
+    <!-- Password field gives the user the privacy of not showing what they type within the box -->
+    <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.halignment="CENTER"
+                   promptText="Password" focusTraversable="false"/>
+
+    <Button fx:id="button" text="Login" GridPane.rowIndex="4" GridPane.columnSpan="2" onAction="#reactToClick"
+            GridPane.halignment="CENTER" defaultButton="true"/>
+
     <Label fx:id="errorMessage" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.columnSpan="4"/>
+
     <stylesheets>
         <URL value="@../../Style.css" />
     </stylesheets>

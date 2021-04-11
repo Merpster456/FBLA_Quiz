@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
- * Starts the application
+ * Starts the application.
  */
 public class StartApp extends Application {
 

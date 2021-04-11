@@ -1,11 +1,17 @@
 package Objects;
 
+/**
+ * Creates a question object that is used as an universal
+ */
 public class Question {
     boolean correct;
     int type;
     int randInt;
     String answer;
 
+    /**
+     * Getter and setter methods for the question object.
+     */
     public void setCorrect(boolean correct){
         this.correct = correct;
     }
@@ -21,13 +27,13 @@ public class Question {
     public void setRandInt(int randInt) {
         this.randInt = randInt;
     }
-   public int getRandInt(){
+    public int getRandInt(){
         return randInt;
    }
-   public void setAnswer(String answer){
+    public void setAnswer(String answer){
         this.answer = answer;
    }
-   public String getAnswer(){
+    public String getAnswer(){
         return answer;
    }
 }

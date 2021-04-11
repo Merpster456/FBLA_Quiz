@@ -43,13 +43,27 @@ public class AdvisorController implements Initializable {
     private Connection connection;
     private Statement statement;
 
+    /**
+     * Initializes page, populates tables.
+     *
+     * @param url
+     * @param rb
+     */
     public void initialize(URL url, ResourceBundle rb) {
         setWelcome();
         setTable();
     }
+
+    /**
+     *  Method that sets the name of the welcome text.
+     */
     private void setWelcome(){
         welcomeLabel.setText("Welcome " + id + "!");
     }
+
+    /**
+     * Method that gathers the data that will be put into the table.
+     */
     @FXML
     private void setTable(){
         String SQL = "SELECT * FROM Responses LEFT JOIN Users ON Responses.id=Users.id ORDER BY julianday(date);";
@@ -111,6 +125,14 @@ public class AdvisorController implements Initializable {
         scoreTable.setItems(null);
         scoreTable.setItems(students);
     }
+
+    /**
+     * Method that adds functionality behind the "Manage Users" button.
+     * When button is clicked, it opens ManageUsers.fxml.
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     protected void manageUsers(ActionEvent event) throws IOException {
         Stage stage = (Stage) scoreTable.getScene().getWindow();
@@ -124,6 +146,13 @@ public class AdvisorController implements Initializable {
         nextStage.setScene(scene);
         nextStage.show();
     }
+
+    /**
+     * Method that puts functionality behind the "Print" button.
+     * Generates a print job, that prints out the table for the user.
+     *
+     * @param event
+     */
     @FXML
     protected void print(ActionEvent event) {
         Stage stage = (Stage) scoreTable.getScene().getWindow();
