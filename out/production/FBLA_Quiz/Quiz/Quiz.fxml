@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Rectangle?>
 <?import java.net.URL?>
+
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" styleClass="primary" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Quiz.QuizController">
     <ScrollPane prefHeight="1080.0" prefWidth="1920.0" styleClass="scrollPane" hbarPolicy="NEVER">
         <Pane>
@@ -18,6 +19,7 @@
             </VBox>
         </Pane>
     </ScrollPane>
+
     <stylesheets>
         <URL value="@../Style.css" />
     </stylesheets>

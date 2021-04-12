@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Ellipse?>
 <?import java.net.URL?>
+
 <AnchorPane prefHeight="900.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Start.StartController">
     <HBox alignment="CENTER" prefHeight="125" prefWidth="600" styleClass="primaryDark">
         <Label styleClass="topLabel" text="FBLA Quiz!" textAlignment="CENTER" />
@@ -22,9 +23,10 @@
             </effect>
         </Ellipse>
         <Label fx:id="loginLabel" onMouseClicked="#loginPage" onMouseEntered="#setLogin" onMousePressed="#loginPressed" onMouseExited="#loginRefresh" styleClass="whiteLabel" text="Login">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Label>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Label>
     </StackPane>
     <StackPane layoutX="117.0" layoutY="499.0">
         <Ellipse fx:id="guestEllipse" layoutX="300.0" layoutY="541.0" onMouseClicked="#guest"  onMouseEntered="#setGuest" onMousePressed="#guestPressed" onMouseExited="#guestRefresh" radiusX="183.0" radiusY="55.0" styleClass="ellipse">

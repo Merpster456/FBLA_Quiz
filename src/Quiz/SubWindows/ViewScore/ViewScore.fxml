@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Rectangle?>
 <?import java.net.URL?>
+
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" styleClass="primary" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Quiz.SubWindows.ViewScore.ViewScore">
     <Rectangle fill="#3d5878" height="200" width="1920" />
     <Label layoutX="122.0" layoutY="58.0" styleClass="topLabel" text="FBLA Quiz!" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="58.0" />
@@ -19,6 +20,7 @@
             <Button fx:id="button" text="View Score" styleClass="richBlue" onAction="#results"/>
         </VBox>
     </StackPane>
+
     <stylesheets>
         <URL value="@../../../Style.css" />
     </stylesheets>

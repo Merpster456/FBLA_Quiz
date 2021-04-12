@@ -45,11 +45,23 @@ QuizController implements Initializable {
     public static Question q4 = new Question();
     public static Question q5 = new Question();
 
+    /**
+     * Method that initializes page.
+     * Retrieves and displays questions, then displays the submit button.
+     *
+     * @param url
+     * @param rb
+     */
     public void initialize(URL url, ResourceBundle rb) {
         getQuestions();
         setSubmit();
     }
 
+    /**
+     * Method retrieves the questions to be used in the quiz.
+     * The order of the questions are random, there will be one type of question that is repeated which
+     * is also random.
+     */
     protected void getQuestions(){
 
         Random random = new Random();
@@ -75,6 +87,7 @@ QuizController implements Initializable {
         String answer;
         int id = 1;
         Map<Integer, Integer> check = new HashMap<Integer, Integer>();
+
         while (typeList.size() > 0) {
             try {
                 connection = DataConnect.getConnection();
@@ -88,10 +101,15 @@ QuizController implements Initializable {
                     type = typeList.get(value);
                     typeList.remove(value);
                 }
-                randInt = random.nextInt(15);
+
+
+                randInt = random.nextInt(15); // There are 15 questions for each type of question.
+                                                    // This random number will decide which question from a certain type is chosen.
                 if (type == 5) {
                     type = random.nextInt(4) + 1;
                 }
+
+                // Checks to ensure there is no repeated questions.
                 if (!check.isEmpty()) {
                     if (check.containsKey(type)){
                         if (check.get(type) == randInt)
@@ -156,21 +174,31 @@ QuizController implements Initializable {
             }
         }
     }
+
+    /**
+     * This function creates and displays all multiple choice questions within the quiz.
+     * Due to the dynamic nature and randomness of the quiz, the questions needed to be coded in
+     * Java rather than FXML.
+     *
+     * @param question
+     * @param dirtyChoices
+     * @param id
+     */
     public void setMultChoice(String question, String dirtyChoices, String id) {
-        /*
-        This function sets the creates and adds multiple choice questions to the quiz.
-         */
-        String[] choices = dirtyChoices.split(",");
+
+        String[] choices = dirtyChoices.split(","); // Use a little regex magic to turn the answer string into a list
         List<String> listchoices =  new ArrayList<String>(Arrays.asList(choices));
         int value;
         StackPane stack = new StackPane();
         Random random = new Random();
+
         Rectangle rectangle = new Rectangle();
         rectangle.setWidth(900);
         rectangle.setArcHeight(50);
         rectangle.setArcWidth(50);
         rectangle.setFill(WHITE);
         rectangle.setLayoutX(510);
+
         VBox innerBox = new VBox();
         HBox hBox1 = new HBox();
         HBox hBox2 = new HBox();
@@ -180,6 +208,7 @@ QuizController implements Initializable {
         hBox2.setSpacing(20);
         hBox3.setSpacing(20);
         hBox4.setSpacing(20);
+
         Label l1 = new Label();
         Label l2 = new Label();
         Label l3 = new Label();
@@ -192,10 +221,8 @@ QuizController implements Initializable {
         l3.getStyleClass().add("nums");
         l4.setText("4.");
         l4.getStyleClass().add("nums");
+
         innerBox.prefWidth(900);
-        /*
-        Insets(Top, Right, Bottom, Left)
-         */
         innerBox.setPadding(new Insets(30,20,20,40));
         innerBox.setSpacing(50);
 
@@ -204,17 +231,20 @@ QuizController implements Initializable {
         qLabel.setAlignment(Pos.TOP_CENTER);
         qLabel.getStyleClass().add("question");
         qLabel.setWrapText(true);
+
         VBox choiceBox = new VBox();
         choiceBox.setSpacing(20);
+
         // Creates the answer choices for multiple choice question.
         ToggleButton choice1 = new ToggleButton();
         choice1.setId(id);
-        value = random.nextInt(4);
+        value = random.nextInt(4); // Makes so even the order of answer choices are random.
         choice1.setText(listchoices.get(value));
         listchoices.remove(value);
         choice1.getStyleClass().add("toggleButtons");
         hBox1.getChildren().add(l1);
         hBox1.getChildren().add(choice1);
+
         ToggleButton choice2 = new ToggleButton();
         value = random.nextInt(3);
         choice2.setText(listchoices.get(value));
@@ -223,6 +253,7 @@ QuizController implements Initializable {
         choice2.getStyleClass().add("toggleButtons");
         hBox2.getChildren().add(l2);
         hBox2.getChildren().add(choice2);
+
         ToggleButton choice3 = new ToggleButton();
         value = random.nextInt(2);
         choice3.setText(listchoices.get(value));
@@ -231,18 +262,21 @@ QuizController implements Initializable {
         choice3.getStyleClass().add("toggleButtons");
         hBox3.getChildren().add(l3);
         hBox3.getChildren().add(choice3);
+
         ToggleButton choice4 = new ToggleButton();
         choice4.setText(listchoices.get(0));
         choice4.setId(id);
         choice4.getStyleClass().add("toggleButtons");
         hBox4.getChildren().add(l4);
         hBox4.getChildren().add(choice4);
+
         // Puts all choices in the same group.
         ToggleGroup group = new ToggleGroup();
         choice1.setToggleGroup(group);
         choice2.setToggleGroup(group);
         choice3.setToggleGroup(group);
         choice4.setToggleGroup(group);
+
         // Inserts the choices into the question bubble.
         choiceBox.getChildren().add(hBox1);
         choiceBox.getChildren().add(hBox2);
@@ -255,40 +289,53 @@ QuizController implements Initializable {
         stack.getChildren().add(innerBox);
         quizBox.getChildren().add(stack);
     }
+
+    /**
+     * This function creates and displays all true false questions within the quiz.
+     *
+     * @param question
+     * @param id
+     */
     public void setTF(String question, String id) {
 
         VBox innerBox = new VBox();
         StackPane stack = new StackPane();
+
         Rectangle rectangle = new Rectangle();
         rectangle.setWidth(900);
         rectangle.setArcHeight(50);
         rectangle.setArcWidth(50);
         rectangle.setFill(WHITE);
         rectangle.setLayoutX(510);
+
         innerBox.prefWidth(900);
-        //Insets(Top, Right, Bottom, Left)
         innerBox.setPadding(new Insets(30,20,20,40));
         innerBox.setSpacing(50);
+
         Label qLabel = new Label();
         qLabel.setText(question);
         qLabel.setAlignment(Pos.TOP_CENTER);
         qLabel.getStyleClass().add("question");
         qLabel.setWrapText(true);
+
         VBox choiceBox = new VBox();
         choiceBox.setSpacing(20);
         ToggleButton trueButton = new ToggleButton();
         trueButton.setId(id);
         trueButton.setText("True");
         trueButton.getStyleClass().add("toggleButtons");
+
         ToggleButton falseButton = new ToggleButton();
         falseButton.setId(id);
         falseButton.setText("False");
         falseButton.getStyleClass().add("toggleButtons");
+
         ToggleGroup group = new ToggleGroup();
         trueButton.setToggleGroup(group);
         falseButton.setToggleGroup(group);
         choiceBox.getChildren().add(trueButton);
         choiceBox.getChildren().add(falseButton);
+
         innerBox.getChildren().add(qLabel);
         innerBox.getChildren().add(choiceBox);
         rectangle.setHeight(300);
@@ -296,6 +343,7 @@ QuizController implements Initializable {
         stack.getChildren().add(innerBox);
         quizBox.getChildren().add(stack);
     }
+
     /*
         Alignment issues, due to time constraints I will come back to this.
 
@@ -335,74 +383,103 @@ QuizController implements Initializable {
         stack.getChildren().add(qPane);
         quizBox.getChildren().add(stack);
     }
+     */
 
+    /**
+     * This function creates and displays all fill in the blank questions within the quiz.
+     *
+     * @param question
+     * @param id
      */
     public void setFill(String question, String id) {
+
         VBox innerBox = new VBox();
         StackPane stack = new StackPane();
+
         Rectangle rectangle = new Rectangle();
         rectangle.setWidth(900);
         rectangle.setArcHeight(50);
         rectangle.setArcWidth(50);
         rectangle.setFill(WHITE);
+
         innerBox.prefWidth(900);
-        //Insets(Top, Right, Bottom, Left)
         innerBox.setPadding(new Insets(30,20,20,40));
         innerBox.setSpacing(50);
+
         VBox qBox = new VBox();
         qBox.setSpacing(10);
+
         Label warning = new Label("** If you believe the answer is numeric, use the number. Do not use letters to spell out the number.");
         warning.getStyleClass().add("warning");
+
         Label qLabel = new Label();
         qLabel.setText(question);
         qLabel.setAlignment(Pos.TOP_CENTER);
         qLabel.getStyleClass().add("question");
         qLabel.setWrapText(true);
         qBox.getChildren().addAll(qLabel, warning);
+
         TextField fill = new TextField();
         fill.setId(id);
         fill.setPrefHeight(25);
         fill.setPrefWidth(100);
         fill.setMaxHeight(25);
         fill.setMaxWidth(200);
+
         Label fillLabel = new Label();
         fillLabel.getStyleClass().add("secondText");
         fillLabel.setText("Fill in the blank:");
+
         HBox fillBox = new HBox();
         fillBox.setSpacing(10);
         fillBox.getChildren().addAll(fillLabel, fill);
+
         innerBox.getChildren().addAll(qBox, fillBox);
         rectangle.setHeight(300);
         stack.getChildren().add(rectangle);
         stack.getChildren().add(innerBox);
         quizBox.getChildren().add(stack);
     }
+
+    /**
+     * This function creates and displays all drop down questions within the quiz.
+     *
+     * @param question
+     * @param dirtyChoices
+     * @param id
+     */
     public void setDrop(String question, String dirtyChoices, String id) {
+
         VBox innerBox = new VBox();
         StackPane stack = new StackPane();
+
         Rectangle rectangle = new Rectangle();
         rectangle.setWidth(900);
         rectangle.setArcHeight(50);
         rectangle.setArcWidth(50);
         rectangle.setFill(WHITE);
+
         innerBox.prefWidth(900);
-        //Insets(Top, Right, Bottom, Left)
         innerBox.setPadding(new Insets(30,20,20,40));
         innerBox.setSpacing(50);
+
         Label qLabel = new Label();
         qLabel.setText(question);
         qLabel.setAlignment(Pos.TOP_CENTER);
         qLabel.getStyleClass().add("question");
         qLabel.setWrapText(true);
+
         ChoiceBox<String> drop = new ChoiceBox<String>();
         drop.setId(id);
         String[] choices = dirtyChoices.split(",");
         for (String choice:choices) {
            drop.getItems().add(choice);
         }
+
         Label dropLabel = new Label();
         dropLabel.getStyleClass().add("secondText");
         dropLabel.setText("Choose the best answer:");
+
         HBox dropBox = new HBox();
         dropBox.setSpacing(10);
         dropBox.getChildren().addAll(dropLabel, drop);
@@ -412,6 +489,13 @@ QuizController implements Initializable {
         stack.getChildren().add(innerBox);
         quizBox.getChildren().add(stack);
     }
+
+    /**
+     * Method that creates and displays the submit button.
+     * This method also determines the functionality of the submit button.
+     * Once clicked it will check every question to make sure there is valid user input.
+     * Then it will go through every question and note whether the user's answer is correct or not.
+     */
     public void setSubmit(){
         Button submit = new Button("Submit");
         submit.getStyleClass().add("richBlue");
@@ -420,7 +504,7 @@ QuizController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 boolean control = true;
                 try {
-                    for (Node stack: quizBox.getChildren()) {
+                    for (Node stack: quizBox.getChildren()) { // Goes through the hierarchy of elements to look for user input.
                         if (stack instanceof StackPane) {
                             for(Node vbox: ((StackPane) stack).getChildren()) {
                                 if (vbox instanceof VBox) {
@@ -464,6 +548,8 @@ QuizController implements Initializable {
                                                             break;
                                                         }
                                                     } else {
+
+                                                        // Creates an error message alerting the user that they gave no answer
                                                         StackPane errorStack = new StackPane();
                                                         Rectangle rect = new Rectangle();
                                                         rect.setArcWidth(10);
@@ -508,19 +594,24 @@ QuizController implements Initializable {
                                                                     }
                                                                 }
                                                             } catch (NullPointerException e) {
-                                                                StackPane errorStack = new StackPane();
-                                                                Rectangle rect = new Rectangle();
-                                                                rect.setArcWidth(10);
-                                                                rect.setArcHeight(10);
-                                                                rect.setHeight(100);
-                                                                rect.setWidth(400);
-                                                                rect.getStyleClass().add("errorRect");
-                                                                Label error = new Label("Please answer every question before submitting.");
-                                                                error.getStyleClass().add("blackLabels");
-                                                                errorStack.getChildren().addAll(rect, error);
-                                                                quizBox.getChildren().add(errorStack);
-                                                                control = false;
-                                                                break;
+
+                                                                if (control) {
+
+                                                                    // Creates an error message alerting the user that they gave no answer
+                                                                    StackPane errorStack = new StackPane();
+                                                                    Rectangle rect = new Rectangle();
+                                                                    rect.setArcWidth(10);
+                                                                    rect.setArcHeight(10);
+                                                                    rect.setHeight(100);
+                                                                    rect.setWidth(400);
+                                                                    rect.getStyleClass().add("errorRect");
+                                                                    Label error = new Label("Please answer every question before submitting.");
+                                                                    error.getStyleClass().add("blackLabels");
+                                                                    errorStack.getChildren().addAll(rect, error);
+                                                                    quizBox.getChildren().add(errorStack);
+                                                                    control = false;
+                                                                    break;
+                                                                }
                                                             }
                                                         }
                                                     }
@@ -533,18 +624,23 @@ QuizController implements Initializable {
                                                     String dirtyID = gen4.getId();
                                                     int id = Integer.parseInt(dirtyID);
                                                     if (answer.length() == 0) {
-                                                        StackPane errorStack = new StackPane();
-                                                        Rectangle rect = new Rectangle();
-                                                        rect.setArcWidth(10);
-                                                        rect.setArcHeight(10);
-                                                        rect.setHeight(100);
-                                                        rect.setWidth(400);
-                                                        rect.getStyleClass().add("errorRect");
-                                                        Label error = new Label("Please answer every question before submitting.");
-                                                        error.getStyleClass().add("blackLabels");
-                                                        errorStack.getChildren().addAll(rect, error);
-                                                        quizBox.getChildren().add(errorStack);
-                                                        control = false;
+
+                                                        if (control) {
+
+                                                            // Creates an error message alerting the user that they gave no answer
+                                                            StackPane errorStack = new StackPane();
+                                                            Rectangle rect = new Rectangle();
+                                                            rect.setArcWidth(10);
+                                                            rect.setArcHeight(10);
+                                                            rect.setHeight(100);
+                                                            rect.setWidth(400);
+                                                            rect.getStyleClass().add("errorRect");
+                                                            Label error = new Label("Please answer every question before submitting.");
+                                                            error.getStyleClass().add("blackLabels");
+                                                            errorStack.getChildren().addAll(rect, error);
+                                                            quizBox.getChildren().add(errorStack);
+                                                            control = false;
+                                                        }
                                                     } else {
                                                         switch (id) {
                                                             case 1 -> {
@@ -591,18 +687,23 @@ QuizController implements Initializable {
                                                             }
                                                         }
                                                     } catch (NullPointerException e) {
-                                                        StackPane errorStack = new StackPane();
-                                                        Rectangle rect = new Rectangle();
-                                                        rect.setArcWidth(10);
-                                                        rect.setArcHeight(10);
-                                                        rect.setHeight(100);
-                                                        rect.setWidth(400);
-                                                        rect.getStyleClass().add("errorRect");
-                                                        Label error = new Label("Please answer every question before submitting.");
-                                                        error.getStyleClass().add("blackLabels");
-                                                        errorStack.getChildren().addAll(rect, error);
-                                                        quizBox.getChildren().add(errorStack);
-                                                        control = false;
+
+                                                        if (control){
+
+                                                            // Creates an error message  alerting the user that they gave no answer
+                                                            StackPane errorStack = new StackPane();
+                                                            Rectangle rect = new Rectangle();
+                                                            rect.setArcWidth(10);
+                                                            rect.setArcHeight(10);
+                                                            rect.setHeight(100);
+                                                            rect.setWidth(400);
+                                                            rect.getStyleClass().add("errorRect");
+                                                            Label error = new Label("Please answer every question before submitting.");
+                                                            error.getStyleClass().add("blackLabels");
+                                                            errorStack.getChildren().addAll(rect, error);
+                                                            quizBox.getChildren().add(errorStack);
+                                                            control = false;
+                                                        }
                                                     }
                                                 }
                                             }
@@ -622,7 +723,7 @@ QuizController implements Initializable {
                 } catch (ConcurrentModificationException ignored) {}
             }
         });
-        quizBox.getChildren().add(submit);
+        quizBox.getChildren().add(submit); // Finally displays the button to the page.
     }
 
     /**
@@ -632,8 +733,8 @@ QuizController implements Initializable {
      * @throws IOException
      */
     public void setViewScore() throws IOException {
-        Stage stage = (Stage) quizBox.getScene().getWindow();
 
+        Stage stage = (Stage) quizBox.getScene().getWindow();
         stage.close();
         Stage nextStage = new Stage();
         Pane root = FXMLLoader.load(getClass().getResource("/Quiz/SubWindows/ViewScore/ViewScore.fxml"));

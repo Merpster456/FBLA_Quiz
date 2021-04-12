@@ -34,13 +34,23 @@ public class ViewScore implements Initializable {
     private int fill = 0;
     private int drop = 0;
 
+    /**
+     * Method that initializes the page.
+     * Calls the function recordScore().
+     *
+     * @param url
+     * @param rb
+     */
     public void initialize(URL url, ResourceBundle rb) {
         recordScore();
     }
 
+    /**
+     * Method that records not only the score the user got on the quiz, but also keeps
+     * track of what type of question the user got wrong.
+     */
     private void recordScore() {
         try {
-
            switch (q1.getType()){
                case 1 -> {
                    if (!q1.getCorrect()) mc++;
@@ -96,6 +106,8 @@ public class ViewScore implements Initializable {
                     if (!q5.getCorrect()) drop++;
                 }
             }
+
+            // Time stamps when the response was submitted.
             String pattern = "yyyy-MM-dd";
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
             LocalDate localDate = LocalDate.now();
@@ -126,8 +138,16 @@ public class ViewScore implements Initializable {
         }
     }
 
+    /**
+     * Method that adds functionality to the "View Score" button.
+     * Opens Results.fxml.
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     protected void results(ActionEvent event) throws IOException {
+
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
 

@@ -38,12 +38,22 @@ public class Results implements Initializable {
     private Statement statement;
     private ResultSet rs = null;
 
+    /**
+     * Method that initializes the page.
+     *
+     *
+     * @param url
+     * @param rb
+     */
     public void initialize(URL url, ResourceBundle rb) {
         iterate();
         score();
         exitPrintButton();
     }
 
+    /**
+     * Method that tallies the total amount of questions answered correctly, and displays it.
+     */
     protected void score() {
         int count = 0;
         if (q1.getCorrect()) count++;
@@ -54,9 +64,12 @@ public class Results implements Initializable {
         score.setText(count + "/5");
     }
 
+    /**
+     * This method iterates through each question the user answered, and calls the corresponding functions.
+     */
     private void iterate() {
 
-        for (int i = 1; i < 6; i++){
+        for (int i = 1; i < 6; i++) { // Iterates through numbers 1-5.
 
             int type;
             int randInt;
@@ -92,6 +105,14 @@ public class Results implements Initializable {
             }
         }
     }
+
+    /**
+     * Method
+     *
+     * @param type
+     * @param randInt
+     * @param isCorrect
+     */
     private void getQuestions(int type, int randInt, boolean isCorrect) {
         try{
             connection = DataConnect.getConnection();
@@ -103,7 +124,6 @@ public class Results implements Initializable {
             String choices = rs.getString(2);
             String answer = rs.getString(3);
 
-            System.out.println(isCorrect);
             switch (type){
                 case 1 -> {
                     setMultChoice(question, choices, answer, isCorrect);

@@ -19,6 +19,7 @@
             </VBox>
         </Pane>
     </ScrollPane>
+
     <stylesheets>
         <URL value="@../Style.css" />
     </stylesheets>
