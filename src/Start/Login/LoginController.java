@@ -2,6 +2,7 @@ package Start.Login;
 
 import Database.DataConnect;
 import Database.DataUtil;
+import Password.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -92,13 +93,14 @@ public class LoginController implements Initializable {
      * If so, it logs into the user's respective interface.
      * If not, a error message is raised alerting the user that either the username or password was incorrect.
      *
-     * @param id
+     * @param id the id of the user to search the database.
      * @param password
      */
     private void findUser(String id, String password) {
 
         ResultSet rs = null;
-        String sql = "SELECT * FROM users WHERE id = '" + id + "' and pass = '" + password + "';";
+
+        String sql = "SELECT * FROM users WHERE id = '" + id + "' and pass = '" + hash + "';";
         LoginController.id = id;
 
         try {
