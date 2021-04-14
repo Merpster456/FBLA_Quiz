@@ -100,6 +100,7 @@ public class LoginController implements Initializable {
 
         ResultSet rs = null;
 
+        String hash = "";
         String sql = "SELECT * FROM users WHERE id = '" + id + "' and pass = '" + hash + "';";
         LoginController.id = id;
 

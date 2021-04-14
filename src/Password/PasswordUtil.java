@@ -78,9 +78,10 @@ public class PasswordUtil {
      * @return true or false that will represent whether the password and username is correct, or not.
      */
     public static boolean checkPass(String username, String pass) {
-
+        return true;
     }
     public static String getSalt(String username) {
-        String sql = "SELECT FROM Users WHERE ("
+        String sql = "SELECT FROM Users WHERE (";
+        return "a";
     }
 }
