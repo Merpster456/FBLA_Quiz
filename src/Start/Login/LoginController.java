@@ -57,12 +57,12 @@ public class LoginController implements Initializable {
             if (connection == null) {
                 errorMessage.setText("Not Connected!");
                 errorMessage.setTextFill(CRIMSON);
-                errorMessage.setStyle("-fx-font-weight: bold;");
             } else {
                 errorMessage.setText("Database Connected!");
                 errorMessage.setTextFill(Color.WHITE);
-                errorMessage.setStyle("-fx-font-weight: bold;");
             }
+            errorMessage.setStyle("-fx-font-weight: bold;");
+
         } catch (SQLException e) {
             System.err.println(e.getStackTrace()[0].getLineNumber());
             System.out.println("Error: " + e);
@@ -77,7 +77,7 @@ public class LoginController implements Initializable {
     /**
      * Method that retrieves the value of the login fields, then calls the login function.
      *
-     * @param event
+     * @param event is not used, however it is initialized when the button is clicked
      */
     @FXML
     protected void reactToClick(ActionEvent event) {
@@ -93,15 +93,32 @@ public class LoginController implements Initializable {
      * If so, it logs into the user's respective interface.
      * If not, a error message is raised alerting the user that either the username or password was incorrect.
      *
-     * @param id the id of the user to search the database.
-     * @param password
+     * @param id is the text input by the user into the id text box.
+     * @param password is the text input by the user into the password text box.
      */
     private void findUser(String id, String password) {
 
         ResultSet rs = null;
 
-        String hash = "";
-        String sql = "SELECT * FROM users WHERE id = '" + id + "' and pass = '" + hash + "';";
+        int isAdvisor = PasswordUtil.checkPass(id, password);
+
+        try {
+            if (isAdvisor == 2) {
+
+                errorMessage.setText("Wrong User or Pass");
+                errorMessage.setTextFill(CRIMSON);
+            } else if (isAdvisor == 1) advisorLogin();
+            else if (isAdvisor == 0) studentLogin();
+
+        } catch (IOException e) {
+
+            System.err.println("Error: " + e);
+            errorMessage.setText("Error!");
+            errorMessage.setTextFill(CRIMSON);
+        }
+
+        /*
+        String sql = "SELECT advisor FROM users WHERE id = '" + id + "' and pass = '" + hash + "';";
         LoginController.id = id;
 
         try {
@@ -109,7 +126,7 @@ public class LoginController implements Initializable {
             connection = DataConnect.getConnection();
             statement = connection.createStatement();
             rs = statement.executeQuery(sql);
-            int isAdvisor = rs.getInt(5);
+            int isAdvisor = rs.getInt(1);
 
             DataUtil.close(rs);
             DataUtil.close(statement);
@@ -139,6 +156,8 @@ public class LoginController implements Initializable {
             DataUtil.close(statement);
             DataUtil.close(connection);
         }
+
+         */
     }
 
     /**

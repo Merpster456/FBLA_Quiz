@@ -123,29 +123,7 @@ public class Student {
         else return GenerateID(first, last);
     }
 
-    /**
-     * Method automatically generates a new user's password.
-     * Password is created in combination of 4 zeros, and 4 random digits.
-     *
-     * @return
-     * */
-    public static String GeneratePass(){
 
-        Random rand = new Random();
-
-        int n = rand.nextInt(8);
-        n = n + 1;
-        int n2 = rand.nextInt(8);
-        n2 = n2 + 1;
-        int n3 = rand.nextInt(8);
-        n3 = n3 + 1;
-        int n4 = rand.nextInt(8);
-        n4 = n4 +1;
-
-        String pass = "0000" + n + n2 + n3 + n4;
-
-        return pass;
-    }
 
         /**
          * Method that checks to ascertain that the new user's ID is not already taken.

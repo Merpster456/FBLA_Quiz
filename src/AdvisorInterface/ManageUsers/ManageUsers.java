@@ -3,6 +3,7 @@ package AdvisorInterface.ManageUsers;
 import Database.DataConnect;
 import Database.DataUtil;
 import Objects.Student;
+import Password.PasswordUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -153,10 +154,10 @@ public class ManageUsers implements Initializable {
 
     /**
      * Method that adds functionality to the "Submit" button.
-     * On click the given values will be entered into a new Person in the database.
+     * On click the given values will be entered into a new User in the database.
      *
-     * @param event
-     * @throws IOException
+     * @param event the event of the button getting clicked
+     * @throws IOException is needed when fxml objects are being used.
      */
     @FXML
     protected void submit(ActionEvent event) throws IOException {
@@ -191,10 +192,12 @@ public class ManageUsers implements Initializable {
                 String id = Student.GenerateID(first, last);
 
                 // Password is automatically generated as an 8 digit code containing, four 0's and four random numbers
-                String pass = Student.GeneratePass();
+                String pass = PasswordUtil.GeneratePass();
+                String salt = PasswordUtil.generateSalt();
 
-                String sql = "INSERT INTO Users VALUES ('" + id + "', '" +  pass +
-                "', '" + first + "', '" +  last + "', 0);";
+                String sql = "INSERT INTO Users VALUES ('" + id + "', '" +  PasswordUtil.generateHash(pass, salt) +
+                "', '" + first + "', '" +  last + "', 0, '"+ salt + "');";
+
                 try {
 
                     connection = DataConnect.getConnection();
