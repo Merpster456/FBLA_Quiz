@@ -94,9 +94,9 @@ public class Student {
      * Method automatically generates a users ID.
      * ID is created by the combination of user's first name, last name, and 3 random digits.
      *
-     * @param First
-     * @param Last
-     * @return
+     * @param First first name of the user.
+     * @param Last last name of the user.
+     * @return an automatically generated id.
      */
     public static String GenerateID(String First, String Last) {
 
@@ -129,8 +129,8 @@ public class Student {
          * Method that checks to ascertain that the new user's ID is not already taken.
          * If this is so, the user gets a new ID and will be checked again, until their ID is not taken.
          *
-         * @param ID
-         * @return
+         * @param ID the generated id.
+         * @return true or false value whether someone has the generated id already.
          */
     private static Boolean check(String ID) {
 

@@ -46,8 +46,8 @@ public class LoginController implements Initializable {
      * Method that initializes page.
      * Checks that program is connected to sqlite database.
      *
-     * @param url
-     * @param rb
+     * @param url needed to initialize the page.
+     * @param rb needed to initialize the page.
      */
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -164,7 +164,7 @@ public class LoginController implements Initializable {
      * Method that logs into the advisor interface.
      * Opens AdvisorUI.fxml.
      *
-     * @throws IOException
+     * @throws IOException needs to be thrown when dealing with fxml objects.
      */
     private void advisorLogin() throws IOException {
 
@@ -184,7 +184,7 @@ public class LoginController implements Initializable {
      * Method that logs into the Quiz as the corresponding user.
      * Opens Quiz.fxml.
      *
-     * @throws IOException
+     * @throws IOException needs to be thrown when dealing with fxml objects.
      */
     private void studentLogin() throws IOException {
 

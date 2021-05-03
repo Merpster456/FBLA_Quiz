@@ -8,10 +8,10 @@ public class DataConnect {
 
     private static final String URL = "jdbc:sqlite:Quiz.db";
 
-    /** Creates a connection object with the SQLite database
+    /** Creates a Connection object with the SQLite database
      *
-     * @return
-     * @throws SQLException
+     * @return a Connection object with the sqlite database.
+     * @throws SQLException must be thrown when using java.sql.
      */
     public static Connection getConnection() throws SQLException {
 

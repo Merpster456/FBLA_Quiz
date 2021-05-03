@@ -38,8 +38,8 @@ public class ViewScore implements Initializable {
      * Method that initializes the page.
      * Calls the function recordScore().
      *
-     * @param url
-     * @param rb
+     * @param url needed for initialization of the page.
+     * @param rb needed for initialization of the page.
      */
     public void initialize(URL url, ResourceBundle rb) {
         recordScore();
@@ -142,8 +142,8 @@ public class ViewScore implements Initializable {
      * Method that adds functionality to the "View Score" button.
      * Opens Results.fxml.
      *
-     * @param event
-     * @throws IOException
+     * @param event the button being clicked.
+     * @throws IOException Needs to be thrown when dealing with fxml objects.
      */
     @FXML
     protected void results(ActionEvent event) throws IOException {

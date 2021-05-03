@@ -44,10 +44,10 @@ public class AdvisorController implements Initializable {
     private Statement statement;
 
     /**
-     * Initializes page, populates tables.
+     * This method initializes page, populates tables.
      *
-     * @param url
-     * @param rb
+     * @param url needed for initialization of the page
+     * @param rb needed for initialization of the page
      */
     public void initialize(URL url, ResourceBundle rb) {
         setWelcome();
@@ -130,8 +130,8 @@ public class AdvisorController implements Initializable {
      * Method that adds functionality behind the "Manage Users" button.
      * When button is clicked, it opens ManageUsers.fxml.
      *
-     * @param event
-     * @throws IOException
+     * @param event the event of the button being clicked.
+     * @throws IOException needs to be thrown when dealing with javaFX abjects.
      */
     @FXML
     protected void manageUsers(ActionEvent event) throws IOException {
@@ -151,7 +151,7 @@ public class AdvisorController implements Initializable {
      * Method that puts functionality behind the "Print" button.
      * Generates a print job, that prints out the table for the user.
      *
-     * @param event
+     * @param event the event of the button being clicked.
      */
     @FXML
     protected void print(ActionEvent event) {
@@ -168,7 +168,7 @@ public class AdvisorController implements Initializable {
         Scale scale = new Scale(scaleX, scaleY);
         scoreTable.getTransforms().add(scale);
 
-        if(printerJob.showPrintDialog(stage.getOwner()) && printerJob.printPage(scoreTable)){
+        if (printerJob.showPrintDialog(stage.getOwner()) && printerJob.printPage(scoreTable)){
             scoreTable.getTransforms().remove(scale);
             printerJob.endJob();
         }

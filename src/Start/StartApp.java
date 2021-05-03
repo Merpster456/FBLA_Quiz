@@ -12,6 +12,12 @@ import javafx.stage.StageStyle;
  */
 public class StartApp extends Application {
 
+    /**
+     * Method that starts the application by opening Start.fxml.
+     *
+     * @param primaryStage is fetched by the launch method with Javafx.application.Application.
+     * @throws Exception needs to be thrown to begin the application.
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Start.fxml"));
@@ -23,9 +29,13 @@ public class StartApp extends Application {
         primaryStage.show();
     }
 
-
+    /**
+     * Main method that starts the program.
+     * Calls the launch method within the javaFX Application class.
+     *
+     * @param args command line arguments.
+     */
     public static void main(String[] args) {
         launch(args);
     }
 }
-

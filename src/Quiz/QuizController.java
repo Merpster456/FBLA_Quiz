@@ -49,8 +49,8 @@ QuizController implements Initializable {
      * Method that initializes page.
      * Retrieves and displays questions, then displays the submit button.
      *
-     * @param url
-     * @param rb
+     * @param url needed for initialization method.
+     * @param rb needed for initialization method.
      */
     public void initialize(URL url, ResourceBundle rb) {
         getQuestions();
@@ -180,9 +180,9 @@ QuizController implements Initializable {
      * Due to the dynamic nature and randomness of the quiz, the questions needed to be coded in
      * Java rather than FXML.
      *
-     * @param question
-     * @param dirtyChoices
-     * @param id
+     * @param question the text of the question.
+     * @param dirtyChoices the choices all put into a string seperated by commas.
+     * @param id the id of the question.
      */
     public void setMultChoice(String question, String dirtyChoices, String id) {
 
@@ -293,8 +293,8 @@ QuizController implements Initializable {
     /**
      * This function creates and displays all true false questions within the quiz.
      *
-     * @param question
-     * @param id
+     * @param question the actual text of the question.
+     * @param id the id of the question.
      */
     public void setTF(String question, String id) {
 
@@ -388,8 +388,8 @@ QuizController implements Initializable {
     /**
      * This function creates and displays all fill in the blank questions within the quiz.
      *
-     * @param question
-     * @param id
+     * @param question the text of the question.
+     * @param id the id of the question
      */
     public void setFill(String question, String id) {
 
@@ -444,9 +444,9 @@ QuizController implements Initializable {
     /**
      * This function creates and displays all drop down questions within the quiz.
      *
-     * @param question
-     * @param dirtyChoices
-     * @param id
+     * @param question the text of the question.
+     * @param dirtyChoices the choices of the question separated by commas.
+     * @param id the id of the question.
      */
     public void setDrop(String question, String dirtyChoices, String id) {
 
@@ -730,7 +730,7 @@ QuizController implements Initializable {
      * Method that is called if all questions are answered and the "Submit" button is clicked.
      * Opens ViewScore.fxml.
      *
-     * @throws IOException
+     * @throws IOException exception needs to be thrown when dealing with fxml objects.
      */
     public void setViewScore() throws IOException {
 

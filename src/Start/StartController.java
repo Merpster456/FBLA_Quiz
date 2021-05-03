@@ -18,6 +18,7 @@ public class StartController implements Initializable {
     @FXML private Ellipse loginEllipse;
     @FXML private Ellipse guestEllipse;
 
+    // Different shades of blue.
     public static String primaryDark = "#3d5878";
     public static String primary = "#5377a1";
     public static String primaryLight = "#789cc7";
@@ -28,8 +29,8 @@ public class StartController implements Initializable {
      * Method that initializes page.
      * Sets original button colors for good measure.
      *
-     * @param url
-     * @param rb
+     * @param url needed to initialize the page.
+     * @param rb needed to initialize the page.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -42,8 +43,8 @@ public class StartController implements Initializable {
      * Method puts functionality behind the "Login" button.
      * When clicked, opens Login.fxml.
      *
-     * @param event
-     * @throws IOException
+     * @param event the event of the button being clicked.
+     * @throws IOException needs to be thrown when dealing with fxml objects.
      */
     @FXML
     protected void loginPage(MouseEvent event) throws IOException {
@@ -64,8 +65,8 @@ public class StartController implements Initializable {
      * Method adds functionality behind the "guest" button.
      * On click, sets isGuest value to true, and opens Quiz.fxml.
      *
-     * @param event
-     * @throws IOException
+     * @param event the event of the button being clicked.
+     * @throws IOException needs to be thrown when dealing with fxml objects.
      */
     @FXML
     protected void guest(MouseEvent event) throws IOException {
@@ -86,7 +87,7 @@ public class StartController implements Initializable {
     /**
      * Method that changes color of the "Login" button when the mouse is hovering over it.
      *
-     * @param event
+     * @param event the event of the mouse hovering over the button.
      */
     @FXML
     protected void setLogin(MouseEvent event) {
@@ -97,7 +98,7 @@ public class StartController implements Initializable {
     /**
      * Method that changes the "Login" button back to its original color when the mouse is no longer over the button.
      *
-     * @param event
+     * @param event the event of the mouse no longer hovering over the button.
      */
     @FXML
     protected void loginRefresh(MouseEvent event) {
@@ -108,7 +109,7 @@ public class StartController implements Initializable {
     /**
      * Method that changes color of the "Guest" button when the mouse is hovering over it.
      *
-     * @param event
+     * @param event the event of the mouse hovering over the button.
      */
     @FXML
     protected void setGuest(MouseEvent event) {
@@ -117,9 +118,9 @@ public class StartController implements Initializable {
     }
 
     /**
-     * Method that changes the "Login" button back to its original color when the mouse is no longer over the button.
+     * Method that changes the "Guest" button back to its original color when the mouse is no longer over the button.
      *
-     * @param event
+     * @param event the event of the mouse no longer hovering over the button.
      */
     @FXML
     protected void guestRefresh(MouseEvent event) {
@@ -130,7 +131,7 @@ public class StartController implements Initializable {
     /**
      * Method that changes the color of the "Guest" button when pressed.
      *
-     * @param event
+     * @param event the event of the button being pressed.
      */
     @FXML
     protected void guestPressed(MouseEvent event) {
@@ -140,7 +141,7 @@ public class StartController implements Initializable {
     /**
      * Method that changes the color of the "Login" button when pressed.
      *
-     * @param event
+     * @param event the event of the button being pressed.
      */
     @FXML
     protected void loginPressed(MouseEvent event) {
