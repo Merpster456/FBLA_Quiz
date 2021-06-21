@@ -61,14 +61,14 @@ sudo chmod u+x mac_start.command
 Once you start the application you will be greeted with a choice to login, or continue as guest. If you want to complete the quiz as a guest click the "continue as guest" button, however if you want to log in use the credentials below. 
 
 ### Advisor Credentials
-ID: adviser
+ID: advisor
 
-Pass: adviser
+Pass: advisor
 
 ### Student Credentials
-ID: student
+ID: ryan.quirk535
 
-Pass: student
+Pass: 00008833
 
 ## Built With
 
