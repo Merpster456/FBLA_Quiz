@@ -84,6 +84,7 @@ public class LoginController implements Initializable {
 
 
         String id = this.textField.getText();
+        LoginController.id = id;
         String password = this.passwordField.getText();
         findUser(id, password);
     }
