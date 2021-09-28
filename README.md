@@ -1,7 +1,6 @@
 # FBLA_Quiz
 
-This project is for the Coding & Programming competition in Future Business Leaders of America. This program tracks community service hours of chapter members, and also automatically tracks progress for the Community Service Awards.
-
+This project is for the Coding & Programming competition in Future Business Leaders of America. This program generates a 5 question quiz based on the club FBLA, then records the user's results.
 ## NOTE
 
 **This project is only compatible with MacOS at the moment.**
